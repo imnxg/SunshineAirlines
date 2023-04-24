@@ -1,6 +1,6 @@
-package com.java.service;
+package com.demo.service;
 
-import com.java.pojo.Result;
+import com.demo.pojo.Result;
 
 /**
  * 登录和用户管理
@@ -9,7 +9,7 @@ import com.java.pojo.Result;
  */
 public interface UserService {
 	//登录
-	Result login(String email,String password);
+	 Result login(String email,String password);
 	
 	//修改密码
 	Result updatePassword(String userId,String password);

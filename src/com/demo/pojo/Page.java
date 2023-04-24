@@ -1,4 +1,4 @@
-package com.java.pojo;
+package com.demo.pojo;
 
 public class Page {
 	private int pageSize;

@@ -1,4 +1,4 @@
-package com.java.controller;
+package com.demo.controller;
 
 import javax.annotation.Resource;
 
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.java.service.UserService;
+import com.demo.service.UserService;
 
 /**
  * µÇÂ¼

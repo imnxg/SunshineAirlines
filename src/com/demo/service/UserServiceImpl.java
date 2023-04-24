@@ -1,4 +1,4 @@
-package com.java.service;
+package com.demo.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,9 +8,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.java.dao.UserDao;
-import com.java.pojo.Page;
-import com.java.pojo.Result;
+import com.demo.dao.UserDao;
+import com.demo.pojo.Page;
+import com.demo.pojo.Result;
 
 /**
  * µÇÂ¼ 

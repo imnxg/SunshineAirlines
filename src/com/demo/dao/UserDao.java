@@ -1,4 +1,4 @@
-package com.java.dao;
+package com.demo.dao;
 
 import java.util.HashMap;
 import java.util.List;

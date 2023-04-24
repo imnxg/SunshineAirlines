@@ -1,4 +1,4 @@
-package com.java.pojo;
+package com.demo.pojo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
