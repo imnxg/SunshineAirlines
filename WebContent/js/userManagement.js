@@ -24,7 +24,7 @@ $(function(){
         if(searchObj.startPage == 1){
             alert("已经是第一页了");
         }else{
-            getUserList(searchObj.roleId,searchObj.name,searchObj.pages -1);
+            getUserList(searchObj.roleId,searchObj.name,searchObj.startPage -1);
         }
     });
 
@@ -32,7 +32,7 @@ $(function(){
         if(searchObj.startPage == searchObj.pages){
             alert("已经是最后一页了");
         }else{
-            getUserList(searchObj.roleId,searchObj.name,searchObj.pages +1);
+            getUserList(searchObj.roleId,searchObj.name,searchObj.startPage +1);
         }
     });
 
