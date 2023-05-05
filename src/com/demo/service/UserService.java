@@ -14,5 +14,5 @@ public interface UserService {
 	//修改密码
 	Result updatePassword(String userId,String password);
 	//查询所有用户信息
-	Result userList(String roleId,String startPage,String pageSize,String name);
+	Result userList(String roleId,String name,String startPage,String pageSize);
 }

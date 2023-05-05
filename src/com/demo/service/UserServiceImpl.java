@@ -25,6 +25,9 @@ public class UserServiceImpl implements UserService{
 	@Resource
 	private UserDao userDao;
 
+	/**
+	 * 登录
+	 */
 	@Override
 	public Result login(String email, String password) {
 		Result result = new Result("fail",null);
@@ -51,6 +54,9 @@ public class UserServiceImpl implements UserService{
 		return result;
 	}
 
+	/**
+	 * 修改密码
+	 */
 	@Override
 	public Result updatePassword(String userId,String password) {
 		Result result = new Result("fail",null);
@@ -69,9 +75,11 @@ public class UserServiceImpl implements UserService{
 		return result;
 	}
 
+	/**
+	 * 查询所有用户信息
+	 */
 	@Override
-	public Result userList(String roleId,String startPage,String pageSize,String name) {
-		Result result = new Result("fail",null);
+	public Result userList(String roleId,String name,String startPage,String pageSize) {
 		int rId = 0;
 		try {
 			rId = Integer.parseInt(roleId);
@@ -89,14 +97,14 @@ public class UserServiceImpl implements UserService{
 		try {
 			size = Integer.parseInt(pageSize);
 		}catch(Exception e) {
-			size = 0;
+			size = 10;
 		}
 		
 		HashMap<String,Object> map = new HashMap<String,Object>();
 		map.put("roleId", rId);
+		map.put("name", name);
 		map.put("startPage", (start - 1)*size);
 		map.put("pageSize", size);
-		map.put("name", name);
 		
 		int total=0;
 		List<HashMap<String,Object>> list = new ArrayList<>();
@@ -107,12 +115,9 @@ public class UserServiceImpl implements UserService{
 		}else {
 			list =  userDao.userByPageSizeAndRoleId(map);
 			total = userDao.totalByPageSizeAndRoleId(map);
-			
 		}
 		Page page = new Page(start,size,total);
-		result.setFlag("success");
-		result.setData(list);
-		result.setPage(page);
+		Result result = new Result("success",list,page);
 		
 		return result;
 	}

@@ -24,8 +24,8 @@ public class LoginController {
 	
 	/**
 	 * 登录
-	 * @param email
-	 * @param password
+	 * @param email  邮箱
+	 * @param password 密码
 	 * @return
 	 */
 	@RequestMapping("/login")
@@ -35,9 +35,9 @@ public class LoginController {
 	
 	/**
 	 *修改密码
-	 * @param userId
-	 * @param password
-	 * @return
+	 * @param userId 用户id
+	 * @param password 密码
+	 * @return 
 	 */
 	@RequestMapping("/updatePassword")
 	public Object updatePassword(String userId,String password) {
@@ -46,14 +46,14 @@ public class LoginController {
 	
 	/**
 	 * 用户查询
-	 * @param roleId
-	 * @param startPage
-	 * @param pageSize
-	 * @param name
+	 * @param roleId  角色id
+	 * @param startPage 起始页
+	 * @param pageSize 每页显示条数
+	 * @param name 姓名  （进行模糊查询）
 	 * @return
 	 */
 	@RequestMapping("/userList")
-	public Object userList(String roleId,String startPage,String pageSize,String name) {
-		return userService.userList(roleId, startPage, pageSize, name);
+	public Object userList(String roleId,String name,String startPage,String pageSize) {
+		return userService.userList(roleId, name,startPage, pageSize);
 	}
 }
