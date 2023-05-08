@@ -18,6 +18,7 @@ $(function(){
             return;
         }
         if(newPasswordAgain == ""){
+        	//请输入符合要求的密码
             alert("newPasswordAgain密码不能为空！");
             return;
         }
@@ -26,7 +27,7 @@ $(function(){
             return;
         }
         if(newPassword != newPasswordAgain){
-            alert("两次输入密码不一致，请重新输入！");
+            alert("两次输入密码不一致，请重新输入");
             return;
         }
          

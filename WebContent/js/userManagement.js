@@ -45,7 +45,7 @@ $(function(){
     });
 
     //下拉框选择第几页
-    $(".pageSelect").click(function(){
+    $(".pageSelect").change(function(){
         var startPage = parseInt($(this).val());
         getUserList(searchObj.roleId,searchObj.name,startPage);
     });
