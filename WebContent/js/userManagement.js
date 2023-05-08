@@ -110,7 +110,7 @@ $(function(){
             $(".totals").text(total);
 
             var optionHtml = "";
-            for(var i=1;i<pages+1;i++){
+            for(var i=1;i<=searchObj.pages;i++){
                 if(searchObj.startPage == i){
                 	optionHtml += "<option  value='"+i+"' selected>"+i+"</option>";
                 }else{
