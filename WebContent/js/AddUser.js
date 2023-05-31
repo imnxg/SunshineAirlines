@@ -43,13 +43,18 @@ $(function () {
 
     //上传图片,将图片转换成base64编码,然后将编码传给后端
     $(".upload-input").change(function(){
+        //获取文件
         var file = this.files[0];
+        //创建文件读取对象
         var reader = new FileReader();
-        reader.readAsDataURL(file);
+        //读取文件,当读取完成后会触发onload事件,然后将读取的结果赋值给img的src属性,就可以显示图片了
         reader.onload = function(event){
             $(".photo").attr("src",event.targer.result);
         }
+        //将文件读取为Data URL,也就是base64编码
+        reader.readAsDataURL(file);
     })
+    //取消按钮
     $(".cancel").click(function () {
         $(".email").val("");
         $(".roleUser").prop("ckecked",true);
