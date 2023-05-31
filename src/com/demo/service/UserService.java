@@ -15,4 +15,9 @@ public interface UserService {
 	Result updatePassword(String userId,String password);
 	//查询所有用户信息
 	Result userList(String roleId,String name,String startPage,String pageSize);
+	
+	//增加用户
+	Result addUser(String email,String firstName,String lastName,String gender,String dateOfBirth,String phone,String  photo,String address,String roleId);
+	
+	
 }

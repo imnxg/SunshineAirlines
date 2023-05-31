@@ -33,5 +33,12 @@
 	  <select id="totalByPageSizeAndRoleId" resultType="Integer">
 	   select count(*) from users where (firstName like '%${name}%' or lastName like '%${name}%') and roleId=#{roleId} 
 	 </select>
+	<!--  	//addUser?email=param1&firstName=param2&
+	//lastName=param3&gender=param4&dateOfBirth=param5&phone=param6&photo=param7&address=param8&roleId=param9-->
+	<!--用户增加  -->
+	<insert id="addUser">
+		insert into users(email,password,firstName,lastName,gender,dateOfBirth,phone,photo,address,roleId) 
+		values(#{email},#{password},#{firstName},#{lastName},#{gender},#{dateOfBirth},#{phone},#{photo},#{address},#{roleId})
+	</insert>
 	
 </mapper>
