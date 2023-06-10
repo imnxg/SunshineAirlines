@@ -1,5 +1,6 @@
 package com.demo.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -14,6 +15,8 @@ public class Result {
 	public void setFlag(String flag) {
 		this.flag = flag;
 	}
+	
+	@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss",timezone="GMT+8")
 	public Object getData() {
 		return data;
 	}

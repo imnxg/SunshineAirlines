@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.dao.ScheduleDao">
+	<!--getTicketStatistics?startDate=2019-08&endDate=2019-09 -->
+	<select id="getTicketStatistics" resultType="hashmap">
+		select
+		DATE_FORMAT(s1.Date,'%Y-%m') as Month,
+		SUM(f1.Payment) as
+		TicketsRevenue,
+		COUNT(DISTINCT s1.ScheduleId) as FlightsAmount,
+		COUNT(f1.ReservationId) as TicketsAmount
+		from `schedule` as s1
+		LEFT JOIN
+		flightreservation as f1 ON s1.ScheduleId = f1.ScheduleId
+		WHERE (s1.Date
+		between '${startDate}' and LAST_DAY('${endDate}')) and
+		s1.Status =
+		'Confirmed'
+		GROUP BY DATE_FORMAT(S1.Date,'%Y-%m')
+	</select>
+
+	<!--getSchedule?fromCity=Beijing&toCity=Hong Kong&startDate=2019-08-06&endDate=2019-09-06 -->
+	<select id="getSchedule" resultType="hashmap">
+		select
+		s1.ScheduleId,
+		s1.Date,
+		s1.Time,
+		DepartureAirport.IATACode as DepartureAirportIATA,
+		ArrivalAirport.IATACode as ArrivalAirportIATA,
+		DepartCity.CityName as
+		DepartCityName,
+		ArriveCity.CityName as ArriveCityName,
+		aircraft.Name,
+		s1.EconomyPrice,
+		s1.FlightNumber,
+		s1.Gate,
+		s1.`Status`
+		from `Schedule` as
+		s1
+		LEFT JOIN aircraft ON s1.AircraftId = aircraft.AircraftId
+		left JOIN
+		route on s1.RouteId = route.RouteId
+		LEFT JOIN airport as
+		DepartureAirport ON
+		route.DepartureAirportIATA =
+		DepartureAirport.IATACode
+		LEFT JOIN airport as ArrivalAirport ON
+		route.ArrivalAirportIATA = ArrivalAirport.IATACode
+		LEFT JOIN city as
+		DepartCity on
+		DepartureAirport.CityCode = DepartCity.CityCode
+		LEFT JOIN
+		city as ArriveCity ON
+		ArrivalAirport.CityCode = ArriveCity.CityCode
+
+		WHERE DepartCity.CityName = #{fromCity}
+		and ArriveCity.CityName =
+		#{toCity} and
+		s1.Date BETWEEN #{startDate} and #{endDate}
+		ORDER BY
+		s1.Date
+	</select>
+	<!--/updateSchedule?scheduleId=1&status=Canceled -->
+	<update id="updateSchedule">
+
+	</update>
+
+</mapper>
