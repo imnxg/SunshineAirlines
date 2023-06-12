@@ -8,10 +8,8 @@ $(function(){
             if(msg.flag=="success"){
                 var htmlStr = "";
                 for(var i=0;i<msg.data.length;i++){
-                    console.log(msg.data[i].CityName);
                     htmlStr += " <option value='"+msg.data[i].CityName+"'>"+msg.data[i].CityName+"</option>";
                 }
-                console.log(htmlStr)
                 $(".fromCity").html(htmlStr);
                 $(".toCity").html(htmlStr);
             }
@@ -54,8 +52,8 @@ function getTicketStatistics( ){
                         statusNum = 1;
                     }
                     htmlStr+=" <tr class='tdcolor'>"+
-                    "<td >"+list[i].Date+"</td>"+
-                    "<td>"+list[i].Time+"</td>"+
+                    "<td >"+list[i].Date.substring(0,10)+"</td>"+
+                    "<td>"+list[i].Time.substring(0,5)+"</td>"+
                     "<td>"+list[i].DepartCityName+"/"+list[i].DepartureAirportIATA+"</td>"+
                     "<td>"+list[i].ArriveCityName+"/"+list[i].ArrivalAirportIATA+"</td>"+
                     "<td>"+list[i].Name+"</td>"+
