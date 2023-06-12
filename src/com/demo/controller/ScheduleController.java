@@ -25,4 +25,9 @@ public class ScheduleController {
 	public Object getSchedule(String fromCity, String toCity, String startDate, String endDate) {
 		return scheduleService.getSchedule(fromCity, toCity, startDate, endDate);
 	}
+
+	@RequestMapping("/updateSchedule")
+	public Object updateSchedule(String scheduleId, String status) {
+		return scheduleService.updateSchedule(scheduleId, status);
+	}
 }

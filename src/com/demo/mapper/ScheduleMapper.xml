@@ -62,7 +62,7 @@
 	</select>
 	<!--/updateSchedule?scheduleId=1&status=Canceled -->
 	<update id="updateSchedule">
-
+		update schedule set status=#{status} where scheduleId=#{scheduleId}
 	</update>
 
 </mapper>
