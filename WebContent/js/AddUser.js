@@ -49,7 +49,7 @@ $(function(){
         var reader = new FileReader();
         //读取文件,当读取完成后会触发onload事件,然后将读取的结果赋值给img的src属性,就可以显示图片了
         reader.onload = function(event){
-            $(".photo").attr("src",event.targer.result);
+            $(".photo").attr("src",event.target.result);
         }
         //将文件读取为Data URL,也就是base64编码
         reader.readAsDataURL(file);
